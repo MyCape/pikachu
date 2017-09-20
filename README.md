@@ -1,8 +1,8 @@
 # pikachu
-MyCape candidate screening.
+MyCape iOS Developer candidate screening.
 
 ## Objective
-- Write a simple mobile app. There is no time limit to complete this test however your speed, quality, and creativity will be greatly considered in the assessment. 
+- Write a simple iOS mobile app. There is no time limit to complete this test however your speed, quality, and creativity will be greatly considered in the assessment. 
 - The app will have 2 views: The splashScreen, the homeScreen.
 
 ## SplashScreen
