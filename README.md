@@ -1,8 +1,8 @@
 # pikachu
-MyCape iOS Developer candidate screening.
+MyCape iOS/Android Developer candidate screening.
 
 ## Objective
-- Write a simple iOS mobile app. There is no time limit to complete this test however your speed, quality, and creativity will be greatly considered in the assessment. 
+- Write a simple iOS/Android mobile app. There is no time limit to complete this test however your speed, quality, and creativity will be greatly considered in the assessment. 
 - The app will have 2 views: The splashScreen, the homeScreen.
 
 ## SplashScreen
@@ -31,6 +31,27 @@ MyCape iOS Developer candidate screening.
   - Remove this airport from favorite.
 - Only 1 item can be saved. An error message will be displayed.
 - You should have a perfect error handling. Use cocoapods to manage dependencies (optional).
+
+### Tests (Android only)
+
+You you need to add unit tests for the HomeScreen only.
+Coverage should be above 90%.
+
+### Build (Android only)
+
+The apk name in debug mode should be "MyCapeTest-Debug".
+The apk name in release mode should be "MyCapeTest".
+The BASE_URL for the API in debug mode should be "https://raw.githubusercontent.com/mwgg/".
+The BASE_URL for the API in release mode should be "https://raw.githubusercontent.com/release/" (it won't work, but we want to see how you handle the BASE_URL given the mode)
+
+### Requirements (Android only)
+
+- Native Android (Java or Kotlin)
+- Dagger 
+- RxAndroid
+- MVP (Model - View - Presenter)
+- The code needs to have comments and be well structured. We will be very careful on the code quality and error handling.
+
 
 ## Submission
 - You should have fork this repository and send us a `Pull Request` 
