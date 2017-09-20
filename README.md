@@ -2,7 +2,8 @@
 MyCape candidate screening.
 
 ## Objective
-- Write a simple mobile app. There is no time limit to complete this test however your speed, quality, and creativity will be greatly considered in the assessment. The app will have 2 views: The splashScreen, the homeScreen.
+- Write a simple mobile app. There is no time limit to complete this test however your speed, quality, and creativity will be greatly considered in the assessment. 
+- The app will have 2 views: The splashScreen, the homeScreen.
 
 ## SplashScreen
 - The splashScreen should display the "ryanair" loading during 2sec before displaying the homeScreen. https://www.ryanair.com/gb/en/
@@ -30,3 +31,7 @@ MyCape candidate screening.
   - Remove this airport from favorite.
 - Only 1 item can be saved. An error message will be displayed.
 - You should have a perfect error handling.
+
+## Submission
+- You should have fork this repository and send us a `Pull Request` 
+- Assign @ceosilvajr, @rogermolas and @skategui as a reviewer.
