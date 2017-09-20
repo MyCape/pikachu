@@ -56,3 +56,4 @@ The BASE_URL for the API in release mode should be "https://raw.githubuserconten
 ## Submission
 - You should have fork this repository and send us a `Pull Request` 
 - Assign @ceosilvajr, @rogermolas and @skategui as a reviewer.
+- PR Title should be in this format `Name: {name}, [Android,iOS]`
