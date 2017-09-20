@@ -30,7 +30,7 @@ MyCape candidate screening.
   - look for the airport in google
   - Remove this airport from favorite.
 - Only 1 item can be saved. An error message will be displayed.
-- You should have a perfect error handling. Use cocoapods to manage dependency (Optional).
+- You should have a perfect error handling. Use cocoapods to manage dependencies (optional).
 
 ## Submission
 - You should have fork this repository and send us a `Pull Request` 
