@@ -1,0 +1,6 @@
+framework module Pods_MyCapeTest {
+  umbrella header "Pods-MyCapeTest-umbrella.h"
+
+  export *
+  module * { export * }
+}
