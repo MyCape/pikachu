@@ -19,10 +19,12 @@ class MapViewViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     mapView.delegate = self
+    mapView.showsUserLocation = true
     for airport in airports {
       mapView.addAnnotation(airport)
     }
-    
+    let viewRegion = MKCoordinateRegionMakeWithDistance((selectedAirport?.coordinate)!, 100, 100)
+    mapView.setRegion(viewRegion, animated: true)
     // Do any additional setup after loading the view.
   }
   
@@ -31,16 +33,6 @@ class MapViewViewController: UIViewController {
     // Dispose of any resources that can be recreated.
   }
   
-  
-  /*
-   // MARK: - Navigation
-   
-   // In a storyboard-based application, you will often want to do a little preparation before navigation
-   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-   // Get the new view controller using segue.destinationViewController.
-   // Pass the selected object to the new view controller.
-   }
-   */
   
   @objc func popUp() {
     let alertController = UIAlertController(title: "Options", message: "Select an option", preferredStyle: .actionSheet)
@@ -52,12 +44,24 @@ class MapViewViewController: UIViewController {
       UIApplication.shared.openURL(URL(string: url)!)
     }
     
-    let removeAction = UIAlertAction(title: "Remove fron lists", style: .default) { (action) in
+    let favoriteAction = UIAlertAction(title: "Favorite", style: .default) { (action) in
       let airportAnnotationView = self.selectedAnnotation
       let airport = self.searchAirportViaCode(code: airportAnnotationView!.code!)
-      self.mapView.removeAnnotation(airport!)
+      if let code = DefaultManager.shared.fetchCode() {
+        let al = UIAlertController(title: "Message", message: "You already favorited one", preferredStyle: .alert)
+        let okayAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
+        al.addAction(okayAction)
+        self.present(al, animated: true, completion: nil)
+      } else {
+        DefaultManager.shared.saveCode(airport?.code)
+      }
+    }
+    
+    let removeAction = UIAlertAction(title: "Unfavorite all", style: .default) { (action) in
+      DefaultManager.shared.remove()
     }
     alertController.addAction(googleAction)
+    alertController.addAction(favoriteAction)
     alertController.addAction(removeAction)
     self.present(alertController, animated: true, completion: nil)
   }
@@ -104,11 +108,11 @@ extension MapViewViewController: MKMapViewDelegate {
 }
 
 extension UIColor{
-    static func random() -> UIColor {
-      return UIColor(red:   .random(),
-                     green: .random(),
-                     blue:  .random(),
-                     alpha: 1.0)
+  static func random() -> UIColor {
+    return UIColor(red:   .random(),
+                   green: .random(),
+                   blue:  .random(),
+                   alpha: 1.0)
   }
 }
 

@@ -33,6 +33,15 @@ class AirportTableViewCell: UITableViewCell {
       nameLabel.text = airport.title
       cityLabel.text = airport.city
       countryLabel.text = airport.country
+      if let code = DefaultManager.shared.fetchCode() {
+        if code == airport.code {
+          self.contentView.backgroundColor = UIColor.purple
+        } else {
+          self.contentView.backgroundColor = UIColor.white
+        }
+      }else {
+        self.contentView.backgroundColor = UIColor.white
+      }
     }
   }
   

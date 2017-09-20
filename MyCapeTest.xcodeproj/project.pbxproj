@@ -18,6 +18,7 @@
 		6A4F3E811F72A7D600228456 /* Airport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A4F3E801F72A7D600228456 /* Airport.swift */; };
 		6A4F3E831F72AA8700228456 /* AirportTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A4F3E821F72AA8700228456 /* AirportTableViewCell.swift */; };
 		6A4F3E851F72D49100228456 /* AirportPinAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A4F3E841F72D49100228456 /* AirportPinAnnotationView.swift */; };
+		6A4F3E871F72DD4A00228456 /* DefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A4F3E861F72DD4A00228456 /* DefaultManager.swift */; };
 		D72906C312476DBDD0E16471 /* Pods_MyCapeTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48075CFE933E75DA17A5D1AC /* Pods_MyCapeTest.framework */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +37,7 @@
 		6A4F3E801F72A7D600228456 /* Airport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Airport.swift; sourceTree = "<group>"; };
 		6A4F3E821F72AA8700228456 /* AirportTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportTableViewCell.swift; sourceTree = "<group>"; };
 		6A4F3E841F72D49100228456 /* AirportPinAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportPinAnnotationView.swift; sourceTree = "<group>"; };
+		6A4F3E861F72DD4A00228456 /* DefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultManager.swift; sourceTree = "<group>"; };
 		9338D2FAF8F4B78E1E9C93F2 /* Pods-MyCapeTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyCapeTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyCapeTest/Pods-MyCapeTest.debug.xcconfig"; sourceTree = "<group>"; };
 		9DF18D7626632866D0773845 /* Pods-MyCapeTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyCapeTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyCapeTest/Pods-MyCapeTest.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -102,6 +104,7 @@
 				6A4F3E801F72A7D600228456 /* Airport.swift */,
 				6A4F3E821F72AA8700228456 /* AirportTableViewCell.swift */,
 				6A4F3E841F72D49100228456 /* AirportPinAnnotationView.swift */,
+				6A4F3E861F72DD4A00228456 /* DefaultManager.swift */,
 			);
 			path = MyCapeTest;
 			sourceTree = "<group>";
@@ -237,6 +240,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A4F3E871F72DD4A00228456 /* DefaultManager.swift in Sources */,
 				6A4F3E6B1F72A52F00228456 /* ViewController.swift in Sources */,
 				6A4F3E7D1F72A59400228456 /* HomeScreenViewController.swift in Sources */,
 				6A4F3E691F72A52F00228456 /* AppDelegate.swift in Sources */,

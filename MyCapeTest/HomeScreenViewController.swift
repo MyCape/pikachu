@@ -22,9 +22,11 @@ class HomeScreenViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    self.loadData()
     tableView.delegate = self
     tableView.dataSource = self
     locationManager = CLLocationManager()
+    self.locationManager?.delegate = self
     let status  = CLLocationManager.authorizationStatus()
     if status == .notDetermined {
       self.locationManager?.requestWhenInUseAuthorization()
@@ -40,8 +42,11 @@ class HomeScreenViewController: UIViewController {
     self.locationManager?.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
     self.locationManager?.startUpdatingLocation()
     self.locationManager?.delegate = self
-    
     self.loadData()
+  }
+  
+  override func viewDidAppear(_ animated: Bool) {
+    self.tableView.reloadData()
   }
   
   func loadData() {
@@ -60,6 +65,7 @@ class HomeScreenViewController: UIViewController {
         airports.append(airport)
       }
       self.airports = airports
+      self.airports.sort(by: { $0.distance(to: self.currentLocation) < $1.distance(to: self.currentLocation) })
       self.tableView.reloadData()
     }
   }
@@ -79,6 +85,14 @@ extension HomeScreenViewController: CLLocationManagerDelegate {
   
   func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
     print("Error \(error)")
+  }
+  
+  func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+    if status == .authorizedWhenInUse {
+      airports.sort(by: { $0.distance(to: self.currentLocation) < $1.distance(to: self.currentLocation) })
+      self.tableView.reloadData()
+      self.locationManager?.startUpdatingLocation()
+    }
   }
   
   func locationManager(_ manager: CLLocationManager,
