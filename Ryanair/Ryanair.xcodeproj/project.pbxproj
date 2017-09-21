@@ -12,6 +12,8 @@
 		341B2C511F73B0E00098E52C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 341B2C4F1F73B0E00098E52C /* Main.storyboard */; };
 		341B2C531F73B0E00098E52C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 341B2C521F73B0E00098E52C /* Assets.xcassets */; };
 		341B2C561F73B0E00098E52C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 341B2C541F73B0E00098E52C /* LaunchScreen.storyboard */; };
+		341B2C5E1F73C8D80098E52C /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341B2C5D1F73C8D80098E52C /* LaunchScreen.swift */; };
+		341B2C601F73C9550098E52C /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341B2C5F1F73C9550098E52C /* LoadingView.swift */; };
 		B410BBC065A1E1AAC44351F5 /* Pods_Ryanair.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F53458F7FD012CF2266187A6 /* Pods_Ryanair.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +27,8 @@
 		341B2C521F73B0E00098E52C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		341B2C551F73B0E00098E52C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		341B2C571F73B0E00098E52C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		341B2C5D1F73C8D80098E52C /* LaunchScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreen.swift; sourceTree = "<group>"; };
+		341B2C5F1F73C9550098E52C /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		F53458F7FD012CF2266187A6 /* Pods_Ryanair.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ryanair.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -67,6 +71,8 @@
 				341B2C521F73B0E00098E52C /* Assets.xcassets */,
 				341B2C541F73B0E00098E52C /* LaunchScreen.storyboard */,
 				341B2C571F73B0E00098E52C /* Info.plist */,
+				341B2C5D1F73C8D80098E52C /* LaunchScreen.swift */,
+				341B2C5F1F73C9550098E52C /* LoadingView.swift */,
 			);
 			path = Ryanair;
 			sourceTree = "<group>";
@@ -212,7 +218,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				341B2C4E1F73B0E00098E52C /* ViewController.swift in Sources */,
+				341B2C601F73C9550098E52C /* LoadingView.swift in Sources */,
 				341B2C4C1F73B0E00098E52C /* AppDelegate.swift in Sources */,
+				341B2C5E1F73C8D80098E52C /* LaunchScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,6 +384,7 @@
 				341B2C5C1F73B0E00098E52C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
