@@ -10,7 +10,7 @@ import Foundation
 import PKHUD
 
 fileprivate enum Title: String {
-    case login = "Authenticating"
+    case retrieve = "Loading Data"
 }
 
 class LoadingView: NSObject {
@@ -24,9 +24,9 @@ class LoadingView: NSObject {
         HUD.hide()
     }
 
-    class func logInProgress() {
+    class func retrievingProgress() {
         DispatchQueue.main.async {
-            HUD.show(.labeledProgress(title: Title.login.rawValue, subtitle: nil))
+            HUD.show(.labeledProgress(title: Title.retrieve.rawValue, subtitle: nil))
         }
     }
 

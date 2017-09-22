@@ -14,11 +14,11 @@ class LaunchScreen: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        LoadingView.nativeProgress()
+        //LoadingView.nativeProgress()
 
         let when = DispatchTime.now() + 2
         DispatchQueue.main.asyncAfter(deadline: when) {
-            LoadingView.hide()
+            self.performSegue(withIdentifier: "segueToTabBar", sender: self)
         }
     }
 }
