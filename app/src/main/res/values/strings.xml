@@ -1,0 +1,19 @@
+<resources>
+  <string name="app_name">Pikachu</string>
+
+  <string name="home">Home</string>
+  <string name="button_ok">Ok</string>
+  <string name="network_issue_found">Network Issue Found.</string>
+  <string name="data_issue_found">Data Issue Found.</string>
+  <string name="unauthorized">Unauthorized network.</string>
+  <string name="http_error_unexpected">Http Error Unexpected.</string>
+  <string name="handle_location_service">The cannot access your current location service.</string>
+  <string name="list">List</string>
+  <string name="map">Map</string>
+
+  <string name="what_would_you_like">What would you like to do</string>
+  <string name="look_for">look for</string>
+  <string name="save_this_airport">Save this airport to favorite</string>
+  <string name="remove_this_airport">Remove this airport from favorite</string>
+  <string name="sorted">Location has been sorted based on your location, switch tabs to refresh the list.</string>
+</resources>
