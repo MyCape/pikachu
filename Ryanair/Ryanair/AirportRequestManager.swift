@@ -14,15 +14,19 @@ fileprivate enum API: String {
 }
 
 class AirportRequestManager {
-    func getAirportsData(completionHandler: @escaping (_ response: Any) -> Swift.Void,
+    func getAirportsData(completionHandler: @escaping (_ response: [AirportModel]) -> Swift.Void,
                          errorHandler: @escaping (Error) -> Swift.Void) -> Void  {
         Alamofire.request(API.url.rawValue).responseJSON { response in
-            print("Request: \(String(describing: response.request))")
-            print("Response: \(String(describing: response.response))")
-            print("Result: \(response.result)")
-
-            if let json = response.result.value {
-                completionHandler(json)
+            var airports = [AirportModel]()
+            if let jsonData = response.data {
+                let dict = try? JSONSerialization.jsonObject(with: jsonData, options: [])
+                for (_, value) in (dict as? [String: AnyObject])! {
+                    let data = value as! [String: AnyObject]
+                    let model = AirportModel()
+                    model.set(data: data)
+                    airports.append(model)
+                }
+                completionHandler(airports)
             }
 
             if let error = response.error {

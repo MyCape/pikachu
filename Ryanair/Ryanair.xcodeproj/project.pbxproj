@@ -16,6 +16,9 @@
 		341B2C621F74D5490098E52C /* AirportRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341B2C611F74D5490098E52C /* AirportRequestManager.swift */; };
 		341B2C6A1F74D70B0098E52C /* AirportsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341B2C691F74D70B0098E52C /* AirportsViewController.swift */; };
 		341B2C6D1F74D73A0098E52C /* AirportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341B2C6C1F74D73A0098E52C /* AirportModel.swift */; };
+		341B2C711F750DBD0098E52C /* AirportTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341B2C701F750DBD0098E52C /* AirportTableCell.swift */; };
+		341B2C731F752EB60098E52C /* loading.gif in Resources */ = {isa = PBXBuildFile; fileRef = 341B2C721F752EB60098E52C /* loading.gif */; };
+		341B2C751F75300C0098E52C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341B2C741F75300C0098E52C /* Extensions.swift */; };
 		B410BBC065A1E1AAC44351F5 /* Pods_Ryanair.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F53458F7FD012CF2266187A6 /* Pods_Ryanair.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +36,9 @@
 		341B2C611F74D5490098E52C /* AirportRequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirportRequestManager.swift; sourceTree = "<group>"; };
 		341B2C691F74D70B0098E52C /* AirportsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirportsViewController.swift; sourceTree = "<group>"; };
 		341B2C6C1F74D73A0098E52C /* AirportModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirportModel.swift; sourceTree = "<group>"; };
+		341B2C701F750DBD0098E52C /* AirportTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirportTableCell.swift; sourceTree = "<group>"; };
+		341B2C721F752EB60098E52C /* loading.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loading.gif; sourceTree = "<group>"; };
+		341B2C741F75300C0098E52C /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		F53458F7FD012CF2266187A6 /* Pods_Ryanair.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ryanair.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -102,6 +108,7 @@
 			children = (
 				341B2C4F1F73B0E00098E52C /* Main.storyboard */,
 				341B2C541F73B0E00098E52C /* LaunchScreen.storyboard */,
+				341B2C701F750DBD0098E52C /* AirportTableCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -118,6 +125,7 @@
 		341B2C671F74D6780098E52C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				341B2C721F752EB60098E52C /* loading.gif */,
 				341B2C521F73B0E00098E52C /* Assets.xcassets */,
 			);
 			name = Resources;
@@ -126,6 +134,7 @@
 		341B2C681F74D6BB0098E52C /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				341B2C741F75300C0098E52C /* Extensions.swift */,
 				341B2C5F1F73C9550098E52C /* LoadingView.swift */,
 			);
 			name = Shared;
@@ -219,6 +228,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				341B2C561F73B0E00098E52C /* LaunchScreen.storyboard in Resources */,
+				341B2C731F752EB60098E52C /* loading.gif in Resources */,
 				341B2C531F73B0E00098E52C /* Assets.xcassets in Resources */,
 				341B2C511F73B0E00098E52C /* Main.storyboard in Resources */,
 			);
@@ -280,7 +290,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				341B2C621F74D5490098E52C /* AirportRequestManager.swift in Sources */,
+				341B2C711F750DBD0098E52C /* AirportTableCell.swift in Sources */,
 				341B2C601F73C9550098E52C /* LoadingView.swift in Sources */,
+				341B2C751F75300C0098E52C /* Extensions.swift in Sources */,
 				341B2C4C1F73B0E00098E52C /* AppDelegate.swift in Sources */,
 				341B2C6D1F74D73A0098E52C /* AirportModel.swift in Sources */,
 				341B2C5E1F73C8D80098E52C /* LaunchScreen.swift in Sources */,

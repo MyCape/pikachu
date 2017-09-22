@@ -11,6 +11,9 @@ import PKHUD
 
 class AirportsViewController: UIViewController {
 
+    @IBOutlet weak var tableView: UITableView!
+    var airports = [AirportModel]()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         getAirport()
@@ -20,9 +23,10 @@ class AirportsViewController: UIViewController {
     func getAirport() {
         LoadingView.retrievingProgress()
         let request = AirportRequestManager()
-        request.getAirportsData(completionHandler: { (json) in
+        request.getAirportsData(completionHandler: { (airports) in
             LoadingView.hide()
-            print(json)
+            self.airports = airports
+            self.tableView.reloadData()
         }) { (error) in
             LoadingView.hide()
             self.showAlert(error: error as! String)
@@ -36,5 +40,20 @@ class AirportsViewController: UIViewController {
         alert.addAction(okAction)
         self.present(alert, animated: true, completion: nil)
     }
+}
 
+extension AirportsViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.airports.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let tableCell = tableView.dequeueReusableCell(withIdentifier: "AirportTableCell", for: indexPath) as! AirportTableCell
+        tableCell.setCell(data: self.airports[indexPath.row])
+        return tableCell
+    }
 }

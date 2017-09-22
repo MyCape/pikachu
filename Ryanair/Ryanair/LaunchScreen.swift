@@ -11,13 +11,18 @@ import PKHUD
 
 class LaunchScreen: UIViewController {
 
+    @IBOutlet weak var plane: UIImageView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
 
-        //LoadingView.nativeProgress()
-
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        plane.startRotating(duration: 2.5)
         let when = DispatchTime.now() + 2
         DispatchQueue.main.asyncAfter(deadline: when) {
+            self.plane.stopRotating()
             self.performSegue(withIdentifier: "segueToTabBar", sender: self)
         }
     }
