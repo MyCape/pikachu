@@ -11,13 +11,22 @@ import PKHUD
 
 class AirportsViewController: UIViewController {
 
+    //MARK: OUTLETS
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var revealerMap: UIBarButtonItem!
+
+    //MARK: PROPERTIES
     var airports = [AirportModel]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        if self.revealViewController() != nil {
+            revealerMap.target = self.revealViewController()
+            revealerMap.action = #selector(SWRevealViewController.revealToggle(_:))
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            self.revealViewController().rearViewRevealWidth = self.view.frame.size.width * 0.70
+        }
         getAirport()
-        addGestureRecognizers()
     }
 
     //MARK: API
@@ -35,16 +44,6 @@ class AirportsViewController: UIViewController {
     }
 
     //MARK: HELPER
-    func addGestureRecognizers() {
-        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
-        swipeLeft.direction = UISwipeGestureRecognizerDirection.left
-        self.view.addGestureRecognizer(swipeLeft)
-    }
-
-    func respondToSwipeGesture(gesture: UIGestureRecognizer) {
-        self.tabBarController?.selectedIndex = 1
-    }
-
     func showAlert(error: String) {
         let alert = UIAlertController(title: error, message: "", preferredStyle: UIAlertControllerStyle.alert)
         let okAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)

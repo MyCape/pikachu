@@ -23,7 +23,7 @@ class LaunchScreen: UIViewController {
         let when = DispatchTime.now() + 2
         DispatchQueue.main.asyncAfter(deadline: when) {
             self.plane.stopRotating()
-            self.performSegue(withIdentifier: "segueToTabBar", sender: self)
+            self.performSegue(withIdentifier: "segueToMaps", sender: self)
         }
     }
 }

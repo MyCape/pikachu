@@ -47,7 +47,7 @@
                     </view>
                     <connections>
                         <outlet property="plane" destination="1Qu-vE-UwR" id="4SR-aD-c0H"/>
-                        <segue destination="UZU-Wx-DSp" kind="show" identifier="segueToTabBar" id="Zck-o4-HhX"/>
+                        <segue destination="AFT-YV-2qd" kind="show" identifier="segueToMaps" id="HIZ-Ss-uWb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -67,7 +67,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="92" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="S1Z-Ou-76S">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AirportTableCell" rowHeight="92" id="KaY-ne-I0X" customClass="AirportTableCell" customModule="Ryanair" customModuleProvider="target">
@@ -125,14 +125,17 @@
                             <constraint firstAttribute="trailing" secondItem="S1Z-Ou-76S" secondAttribute="trailing" id="oAf-kq-JUR"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Hfs-00-eh8"/>
+                    <navigationItem key="navigationItem" id="Hfs-00-eh8">
+                        <barButtonItem key="leftBarButtonItem" image="map" id="vtX-x2-Cip"/>
+                    </navigationItem>
                     <connections>
+                        <outlet property="revealerMap" destination="vtX-x2-Cip" id="0f4-Su-lmJ"/>
                         <outlet property="tableView" destination="S1Z-Ou-76S" id="DNM-QL-JVR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bVK-GK-HSa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-484" y="2278.1109445277361"/>
+            <point key="canvasLocation" x="455.19999999999999" y="1510.7946026986508"/>
         </scene>
         <!--Maps View Controller-->
         <scene sceneID="4m0-Hh-50X">
@@ -151,67 +154,50 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tyz-Ch-6AU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="528.79999999999995" y="2276.3118440779613"/>
+            <point key="canvasLocation" x="1464.8" y="1508.9955022488757"/>
+        </scene>
+        <!--Reveal View Controller-->
+        <scene sceneID="B3b-ZC-sin">
+            <objects>
+                <viewController storyboardIdentifier="sw_front" id="AFT-YV-2qd" customClass="SWRevealViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cLf-so-rs2"/>
+                        <viewControllerLayoutGuide type="bottom" id="av5-Sm-aaq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vE2-kw-QTd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <segue destination="GPN-BO-cSB" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="8hb-Yz-KJd"/>
+                        <segue destination="MWN-n8-MeP" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="gZe-Yr-xty"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iHv-xU-EdH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="22" y="739"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="la7-sT-MNN">
+        <scene sceneID="MV6-UD-eux">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9PM-Zr-n6b" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="airplane" id="zO9-Hh-ZcH"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GPN-BO-cSB" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="xhZ-pU-UWX">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="H0b-iO-Mf2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="KXJ-fh-4S8" kind="relationship" relationship="rootViewController" id="93e-ON-FWY"/>
+                        <segue destination="KXJ-fh-4S8" kind="relationship" relationship="rootViewController" id="8JS-zP-cEG"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6Z8-Y4-tA7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zAt-YM-22u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-486" y="1533"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="j15-JD-p46">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xuJ-iR-stp" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="map" id="Pv6-aK-pvl"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="l0m-wm-7xR">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="MWN-n8-MeP" kind="relationship" relationship="rootViewController" id="QtK-Ma-LXf"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pvY-iX-j2y" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="529" y="1531"/>
-        </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="RNU-hW-Yy8">
-            <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="UZU-Wx-DSp" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="uxX-Ex-2nl">
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="9PM-Zr-n6b" kind="relationship" relationship="viewControllers" id="Eb2-37-ADd"/>
-                        <segue destination="xuJ-iR-stp" kind="relationship" relationship="viewControllers" id="lrE-pC-cXT"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lBK-vy-MER" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="22" y="737"/>
+            <point key="canvasLocation" x="-484" y="1510.7946026986508"/>
         </scene>
     </scenes>
     <resources>
-        <image name="airplane" width="24" height="24"/>
         <image name="loading.gif" width="300" height="300"/>
         <image name="logo" width="302" height="63"/>
         <image name="map" width="24" height="24"/>

@@ -18,9 +18,6 @@ class MapsViewController: UIViewController {
 
     //MARK: HELPERS
     func addMap() {
-        //add gesture recognizers
-        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
-        swipeRight.direction = UISwipeGestureRecognizerDirection.right
 
         //creating a camera
         let camera = GMSCameraPosition.camera(withLatitude: 23.431351, longitude: 85.325879, zoom: 6.0)
@@ -30,7 +27,6 @@ class MapsViewController: UIViewController {
 
         //adding mapview to view
         view = mapView
-        view.addGestureRecognizer(swipeRight)
 
         //creating a marker on the map
         let marker = GMSMarker()
@@ -39,7 +35,4 @@ class MapsViewController: UIViewController {
         marker.map = mapView
     }
 
-    func respondToSwipeGesture(gesture: UIGestureRecognizer) {
-        self.tabBarController?.selectedIndex = 0
-    }
 }
