@@ -8,5 +8,7 @@ target 'Ryanair' do
   # Pods for Ryanair
   pod 'Alamofire', '~> 4.5'
   pod 'PKHUD', '~> 4.0'
+  pod 'GoogleMaps'
+  pod 'GooglePlaces'
 
 end

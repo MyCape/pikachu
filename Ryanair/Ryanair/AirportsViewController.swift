@@ -17,6 +17,7 @@ class AirportsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         getAirport()
+        addGestureRecognizers()
     }
 
     //MARK: API
@@ -34,6 +35,16 @@ class AirportsViewController: UIViewController {
     }
 
     //MARK: HELPER
+    func addGestureRecognizers() {
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
+        swipeLeft.direction = UISwipeGestureRecognizerDirection.left
+        self.view.addGestureRecognizer(swipeLeft)
+    }
+
+    func respondToSwipeGesture(gesture: UIGestureRecognizer) {
+        self.tabBarController?.selectedIndex = 1
+    }
+
     func showAlert(error: String) {
         let alert = UIAlertController(title: error, message: "", preferredStyle: UIAlertControllerStyle.alert)
         let okAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
