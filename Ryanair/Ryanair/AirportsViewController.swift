@@ -22,9 +22,9 @@ class AirportsViewController: UIViewController {
         super.viewDidLoad()
         if self.revealViewController() != nil {
             revealerMap.target = self.revealViewController()
-            revealerMap.action = #selector(SWRevealViewController.revealToggle(_:))
+            revealerMap.action = #selector(SWRevealViewController.rightRevealToggle(_:))
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-            self.revealViewController().rearViewRevealWidth = self.view.frame.size.width * 0.70
+            self.revealViewController().rightViewRevealWidth = self.view.frame.size.width * 0.85
         }
         getAirport()
     }

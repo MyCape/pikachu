@@ -77,7 +77,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="91.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reimer Aerodome" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SmV-kB-L4l">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reimer Aerodome" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SmV-kB-L4l">
                                                     <rect key="frame" x="8" y="10" width="359" height="32"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="32" id="JS6-Kj-lHb"/>
@@ -86,7 +86,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jamestown, USA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ffR-wc-IIj">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jamestown, USA" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ffR-wc-IIj">
                                                     <rect key="frame" x="8" y="50" width="359" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="AHZ-cM-kDG"/>
@@ -126,7 +126,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Hfs-00-eh8">
-                        <barButtonItem key="leftBarButtonItem" image="map" id="vtX-x2-Cip"/>
+                        <barButtonItem key="rightBarButtonItem" image="map" id="vtX-x2-Cip"/>
                     </navigationItem>
                     <connections>
                         <outlet property="revealerMap" destination="vtX-x2-Cip" id="0f4-Su-lmJ"/>
@@ -171,7 +171,7 @@
                     </view>
                     <connections>
                         <segue destination="GPN-BO-cSB" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="8hb-Yz-KJd"/>
-                        <segue destination="MWN-n8-MeP" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="gZe-Yr-xty"/>
+                        <segue destination="MWN-n8-MeP" kind="custom" identifier="sw_right" customClass="SWRevealViewControllerSegueSetController" id="gZe-Yr-xty"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iHv-xU-EdH" userLabel="First Responder" sceneMemberID="firstResponder"/>

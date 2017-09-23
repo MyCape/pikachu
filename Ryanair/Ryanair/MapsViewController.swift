@@ -11,6 +11,13 @@ import GoogleMaps
 
 class MapsViewController: UIViewController {
 
+    //MARK: PROPERTIES
+    var locationManager = CLLocationManager()
+    var currentLocation: CLLocation?
+    var mapView: GMSMapView!
+    var placesClient: GMSPlacesClient!
+    var zoomLevel: Float = 15.0
+
     override func viewDidLoad() {
         super.viewDidLoad()
         addMap()
