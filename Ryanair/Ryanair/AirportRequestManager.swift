@@ -22,9 +22,12 @@ class AirportRequestManager {
                 let dict = try? JSONSerialization.jsonObject(with: jsonData, options: [])
                 for (_, value) in (dict as? [String: AnyObject])! {
                     let data = value as! [String: AnyObject]
-                    let model = AirportModel()
-                    model.set(data: data)
-                    airports.append(model)
+                    let countryCode = (Locale.current as NSLocale).object(forKey: .countryCode) as? String
+                    if data["country"] as? String == countryCode {
+                        let model = AirportModel()
+                        model.set(data: data)
+                        airports.append(model)
+                    }
                 }
                 completionHandler(airports)
             }

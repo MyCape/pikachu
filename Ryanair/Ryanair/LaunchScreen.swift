@@ -22,7 +22,6 @@ class LaunchScreen: UIViewController {
         plane.startRotating(duration: 2.5)
         let when = DispatchTime.now() + 2
         DispatchQueue.main.asyncAfter(deadline: when) {
-            self.plane.stopRotating()
             self.performSegue(withIdentifier: "segueToMaps", sender: self)
         }
     }

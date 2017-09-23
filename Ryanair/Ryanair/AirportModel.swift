@@ -26,8 +26,8 @@ class AirportModel {
     var elevation = ""
     var iata = ""
     var icao = ""
-    var lat = ""
-    var lon = ""
+    var lat = 0.0
+    var lon = 0.0
     var name = ""
     var tz = ""
 
@@ -37,8 +37,8 @@ class AirportModel {
         self.elevation = data[Key.elevation.rawValue] as? String ?? ""
         self.iata = data[Key.iata.rawValue] as? String ?? ""
         self.icao = data[Key.icao.rawValue] as? String ?? ""
-        self.lat = data[Key.lat.rawValue] as? String ?? ""
-        self.lon = data[Key.lon.rawValue] as? String ?? ""
+        self.lat = data[Key.lat.rawValue] as? Double ?? 0.0
+        self.lon = data[Key.lon.rawValue] as? Double ?? 0.0
         self.name = data[Key.name.rawValue] as? String ?? ""
         self.tz = data[Key.tz.rawValue] as? String ?? ""
     }

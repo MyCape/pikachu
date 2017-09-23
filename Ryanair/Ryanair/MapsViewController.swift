@@ -8,38 +8,89 @@
 
 import UIKit
 import GoogleMaps
+import CoreLocation
 
 class MapsViewController: UIViewController {
 
     //MARK: PROPERTIES
+    var userLocation = CLLocation()
     var locationManager = CLLocationManager()
-    var currentLocation: CLLocation?
+    var marker = GMSMarker()
+    var center = CLLocationCoordinate2D()
     var mapView: GMSMapView!
-    var placesClient: GMSPlacesClient!
-    var zoomLevel: Float = 15.0
+    var airports = [AirportModel]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        //creating a camera
         addMap()
+        getUserLocation()
+        getAirport()
     }
 
     //MARK: HELPERS
     func addMap() {
-
-        //creating a camera
-        let camera = GMSCameraPosition.camera(withLatitude: 23.431351, longitude: 85.325879, zoom: 6.0)
-
-        //this is our map view
-        let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
-
-        //adding mapview to view
+        let camera = GMSCameraPosition.camera(withLatitude: 14.5547, longitude: 121.0244, zoom: 13.0)
+        mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
+        mapView.isMyLocationEnabled = true
         view = mapView
-
-        //creating a marker on the map
-        let marker = GMSMarker()
-        marker.position = CLLocationCoordinate2D(latitude: 23.431351, longitude: 85.325879)
-        marker.title = "Ranchi, Jharkhand"
+        center = CLLocationCoordinate2D(latitude: 14.5547, longitude: 121.0244)
+        marker.position = center
         marker.map = mapView
     }
 
+    func getUserLocation() {
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.startUpdatingLocation()
+    }
+
+    func showAlert(error: String) {
+        let alert = UIAlertController(title: error, message: "", preferredStyle: UIAlertControllerStyle.alert)
+        let okAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alert.addAction(okAction)
+        self.present(alert, animated: true, completion: nil)
+    }
+
+    func addMarkers() {
+        for i in 0..<airports.count {
+            let location = CLLocationCoordinate2D(latitude: airports[i].lat, longitude: airports[i].lon)
+            let anotherMarker = GMSMarker()
+            anotherMarker.position = location
+            anotherMarker.title = airports[i].name
+            anotherMarker.map = mapView
+        }
+    }
+
+    //MARK: API
+    func getAirport() {
+        LoadingView.retrievingProgress()
+        let request = AirportRequestManager()
+        request.getAirportsData(completionHandler: { (airports) in
+            LoadingView.hide()
+            self.airports = airports
+            self.addMarkers()
+        }) { (error) in
+            LoadingView.hide()
+            self.showAlert(error: error as! String)
+        }
+    }
+}
+
+extension MapsViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        userLocation = locations.last!
+        center = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
+
+        let camera = GMSCameraPosition.camera(withLatitude: userLocation.coordinate.latitude,
+                                              longitude: userLocation.coordinate.longitude, zoom: 13.0)
+        mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
+        mapView.isMyLocationEnabled = true
+        self.view = mapView
+        marker.position = center
+        marker.map = mapView
+
+        locationManager.stopUpdatingLocation()
+    }
 }
