@@ -134,10 +134,10 @@
             </objects>
             <point key="canvasLocation" x="-484" y="2278.1109445277361"/>
         </scene>
-        <!--Maps View Controller-->
+        <!--View Controller-->
         <scene sceneID="4m0-Hh-50X">
             <objects>
-                <viewController id="MWN-n8-MeP" customClass="MapsViewController" customModule="Ryanair" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="MWN-n8-MeP" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jHV-pE-9hr"/>
                         <viewControllerLayoutGuide type="bottom" id="Ec1-aL-2uk"/>
@@ -151,7 +151,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tyz-Ch-6AU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="528.79999999999995" y="2276.3118440779613"/>
+            <point key="canvasLocation" x="529" y="2277"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="la7-sT-MNN">
@@ -159,7 +159,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9PM-Zr-n6b" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="airplane" id="zO9-Hh-ZcH"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="xhZ-pU-UWX">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xhZ-pU-UWX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -178,7 +178,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xuJ-iR-stp" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="map" id="Pv6-aK-pvl"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="l0m-wm-7xR">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="l0m-wm-7xR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
