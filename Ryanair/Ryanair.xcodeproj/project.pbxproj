@@ -21,6 +21,8 @@
 		341B2C751F75300C0098E52C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341B2C741F75300C0098E52C /* Extensions.swift */; };
 		341B2C771F767B1E0098E52C /* MapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341B2C761F767B1E0098E52C /* MapsViewController.swift */; };
 		341B2C7C1F76848D0098E52C /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 341B2C7B1F76848D0098E52C /* SWRevealViewController.m */; };
+		341B2C7E1F777DFB0098E52C /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341B2C7D1F777DFB0098E52C /* BaseViewController.swift */; };
+		341B2C801F77840F0098E52C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341B2C7F1F77840F0098E52C /* Constants.swift */; };
 		B410BBC065A1E1AAC44351F5 /* Pods_Ryanair.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F53458F7FD012CF2266187A6 /* Pods_Ryanair.framework */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +47,8 @@
 		341B2C791F76848D0098E52C /* Ryanair-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Ryanair-Bridging-Header.h"; sourceTree = "<group>"; };
 		341B2C7A1F76848D0098E52C /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		341B2C7B1F76848D0098E52C /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		341B2C7D1F777DFB0098E52C /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		341B2C7F1F77840F0098E52C /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F53458F7FD012CF2266187A6 /* Pods_Ryanair.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ryanair.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -98,6 +102,7 @@
 				341B2C5D1F73C8D80098E52C /* LaunchScreen.swift */,
 				341B2C691F74D70B0098E52C /* AirportsViewController.swift */,
 				341B2C761F767B1E0098E52C /* MapsViewController.swift */,
+				341B2C7D1F777DFB0098E52C /* BaseViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -144,6 +149,7 @@
 			children = (
 				341B2C741F75300C0098E52C /* Extensions.swift */,
 				341B2C5F1F73C9550098E52C /* LoadingView.swift */,
+				341B2C7F1F77840F0098E52C /* Constants.swift */,
 			);
 			name = Shared;
 			sourceTree = "<group>";
@@ -310,6 +316,7 @@
 			files = (
 				341B2C771F767B1E0098E52C /* MapsViewController.swift in Sources */,
 				341B2C621F74D5490098E52C /* AirportRequestManager.swift in Sources */,
+				341B2C7E1F777DFB0098E52C /* BaseViewController.swift in Sources */,
 				341B2C711F750DBD0098E52C /* AirportTableCell.swift in Sources */,
 				341B2C601F73C9550098E52C /* LoadingView.swift in Sources */,
 				341B2C751F75300C0098E52C /* Extensions.swift in Sources */,
@@ -318,6 +325,7 @@
 				341B2C7C1F76848D0098E52C /* SWRevealViewController.m in Sources */,
 				341B2C5E1F73C8D80098E52C /* LaunchScreen.swift in Sources */,
 				341B2C6A1F74D70B0098E52C /* AirportsViewController.swift in Sources */,
+				341B2C801F77840F0098E52C /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

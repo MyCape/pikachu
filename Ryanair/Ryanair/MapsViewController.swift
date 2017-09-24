@@ -10,7 +10,7 @@ import UIKit
 import GoogleMaps
 import CoreLocation
 
-class MapsViewController: UIViewController {
+class MapsViewController: BaseViewController {
 
     //MARK: PROPERTIES
     var userLocation = CLLocation()
@@ -46,17 +46,19 @@ class MapsViewController: UIViewController {
         locationManager.startUpdatingLocation()
     }
 
-    func showAlert(error: String) {
-        let alert = UIAlertController(title: error, message: "", preferredStyle: UIAlertControllerStyle.alert)
-        let okAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-        alert.addAction(okAction)
-        self.present(alert, animated: true, completion: nil)
-    }
+
 
     func addMarkers() {
+        var icao = String()
+        if let savedIcao = getFromUserDefault(key: self.constants.savedIcaoKey) as? String {
+            icao = savedIcao
+        }
         for i in 0..<airports.count {
             let location = CLLocationCoordinate2D(latitude: airports[i].lat, longitude: airports[i].lon)
             let anotherMarker = GMSMarker()
+            if icao == airports[i].icao {
+                anotherMarker.icon = GMSMarker.markerImage(with: .blue)
+            }
             anotherMarker.position = location
             anotherMarker.title = airports[i].name
             anotherMarker.map = mapView

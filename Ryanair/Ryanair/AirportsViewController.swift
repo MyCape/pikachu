@@ -9,7 +9,7 @@
 import UIKit
 import PKHUD
 
-class AirportsViewController: UIViewController {
+class AirportsViewController: BaseViewController {
 
     //MARK: OUTLETS
     @IBOutlet weak var tableView: UITableView!
@@ -42,14 +42,6 @@ class AirportsViewController: UIViewController {
             self.showAlert(error: error as! String)
         }
     }
-
-    //MARK: HELPER
-    func showAlert(error: String) {
-        let alert = UIAlertController(title: error, message: "", preferredStyle: UIAlertControllerStyle.alert)
-        let okAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-        alert.addAction(okAction)
-        self.present(alert, animated: true, completion: nil)
-    }
 }
 
 extension AirportsViewController: UITableViewDataSource {
@@ -65,5 +57,19 @@ extension AirportsViewController: UITableViewDataSource {
         let tableCell = tableView.dequeueReusableCell(withIdentifier: "AirportTableCell", for: indexPath) as! AirportTableCell
         tableCell.setCell(data: self.airports[indexPath.row])
         return tableCell
+    }
+}
+
+extension AirportsViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        showOptionMenu(airport: airports[indexPath.row].name, icao: airports[indexPath.row].icao) { (shouldReload, shouldShowError) in
+            if shouldReload {
+                tableView.reloadData()
+            }
+
+            if shouldShowError {
+                self.showAlert(error: "Only one Airport can be saved to favorite.")
+            }
+        }
     }
 }

@@ -12,7 +12,6 @@ class AirportTableCell: UITableViewCell {
 
     @IBOutlet weak var airportName: UILabel!
     @IBOutlet weak var location: UILabel!
-
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -22,8 +21,19 @@ class AirportTableCell: UITableViewCell {
     }
 
     func setCell(data: AirportModel) {
+        let constants = Constants()
         airportName.text = data.name
-        location.text = "\(data.city), \(data.country)"
+        if data.city.isEmpty {
+            location.text = data.country
+        } else {
+            location.text = "\(data.city), \(data.country)"
+        }
+        self.contentView.backgroundColor = UIColor.clear
+        if let savedIcao = UserDefaults.standard.object(forKey: constants.savedIcaoKey) as? String {
+            if savedIcao == data.icao {
+                self.contentView.backgroundColor = UIColor.lightGray
+            }
+        }
     }
 
 }
