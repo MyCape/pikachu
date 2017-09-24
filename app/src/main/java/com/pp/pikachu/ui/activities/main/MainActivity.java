@@ -11,6 +11,10 @@ import com.pp.pikachu.ui.activities.HttpToolBarBaseActivity;
 import javax.inject.Inject;
 import rx.subscriptions.CompositeSubscription;
 
+/**
+ * Most of the methods are implemented in abstract in the superclass so we can override them
+ * and implement the proper process, and so the sub classes can have a uniform structure.
+ */
 public class MainActivity extends HttpToolBarBaseActivity {
 
   @Inject AlertDialog alertDialog;
@@ -77,6 +81,11 @@ public class MainActivity extends HttpToolBarBaseActivity {
     MainApplication.get(this).releaseMainComponent();
   }
 
+  /**
+   * Once everything is setup, we will call the api for the data if the database is empty.
+   * If the database is not empty, then we will direct the user to the home page.
+   *
+   */
   private void processAirports() {
     if (!presenter.isDataExisting()) {
       compositeSubscription.add(presenter.getAirports());

@@ -53,6 +53,11 @@ public class MainPresenter extends BasePresenter {
     });
   }
 
+  /**
+   * Handling of object that is being returned by the api,
+   * object is being parsed into a jsonArray then passed on other method for saving.
+   * @param object
+   */
   private void handleProcessing(Object object) {
     JsonObject jsonObject = new Gson().toJsonTree(object).getAsJsonObject();
     JSONArray jsonArray = new JSONArray();
@@ -63,6 +68,10 @@ public class MainPresenter extends BasePresenter {
     processSaving(jsonArray);
   }
 
+  /**
+   * JSONArray data is processed for database saving using realm
+   * @param formattedJSON
+   */
   private void processSaving(JSONArray formattedJSON) {
     Realm realm = Realm.getDefaultInstance();
     try {
@@ -89,10 +98,18 @@ public class MainPresenter extends BasePresenter {
     }
   }
 
+  /**
+   * Once all the data has been saved, the user will be directed to the home page.
+   */
   public void goToHomePage() {
     activity.appActivityManager.launchHomePage(activity);
   }
 
+  /**
+   * Database is being checked if it is empty so we can call the api in case the database
+   * is empty.
+   * @return
+   */
   public boolean isDataExisting() {
     Realm realm = Realm.getDefaultInstance();
     realm.beginTransaction();
@@ -105,6 +122,9 @@ public class MainPresenter extends BasePresenter {
     }
   }
 
+  /**
+   * Close the app if there's any error within the api, network, etc.
+   */
   public void handleError(){
     activity.finish();
   }

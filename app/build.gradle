@@ -17,9 +17,34 @@ android {
     resValue "string", "googleApiKey", (project.findProperty("GOOGLE_MAPS_API_KEY") ?: "")
   }
   buildTypes {
+    debug {
+      minifyEnabled false
+      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+      buildConfigField 'String', 'BASE_URL', '"https://raw.githubusercontent.com/mwgg/"';
+      applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+          def apk = output.outputFile;
+          def newName;
+          newName = apk.name.replace("-" + variant.buildType.name, "")
+              .replace(project.name, rootProject.ext.myCapeTestDebug);
+          output.outputFile = new File(apk.parentFile, newName);
+        }
+      }
+    }
+
     release {
       minifyEnabled false
       proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+      buildConfigField 'String', 'BASE_URL', '"https://raw.githubusercontent.com/release/"';
+      applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+          def apk = output.outputFile;
+          def newName;
+          newName = apk.name.replace("-" + variant.buildType.name, "")
+              .replace(project.name, rootProject.ext.myCapeTestRelease);
+          output.outputFile = new File(apk.parentFile, newName);
+        }
+      }
     }
   }
 
@@ -90,4 +115,6 @@ dependencies {
 
 
   testCompile 'junit:junit:4.12'
+  testCompile "org.robolectric:robolectric:3.4.2"
+  testCompile "org.mockito:mockito-core:2.+"
 }
