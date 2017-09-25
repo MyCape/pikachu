@@ -22,10 +22,14 @@ class MapsViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //creating a camera
         addMap()
         getUserLocation()
         getAirport()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        addMarkers()
     }
 
     //MARK: HELPERS
@@ -46,8 +50,6 @@ class MapsViewController: BaseViewController {
         locationManager.startUpdatingLocation()
     }
 
-
-
     func addMarkers() {
         var icao = String()
         if let savedIcao = getFromUserDefault(key: self.constants.savedIcaoKey) as? String {
@@ -58,6 +60,8 @@ class MapsViewController: BaseViewController {
             let anotherMarker = GMSMarker()
             if icao == airports[i].icao {
                 anotherMarker.icon = GMSMarker.markerImage(with: .blue)
+            } else {
+                anotherMarker.icon = GMSMarker.markerImage(with: .red)
             }
             anotherMarker.position = location
             anotherMarker.title = airports[i].name

@@ -82,7 +82,7 @@ class BaseViewController: UIViewController {
             UIApplication.shared.open(NSURL(string: "https://www.google.com/#q=\(query)")! as URL)
         })
 
-        let cancelAction = UIAlertAction(title: actionKey.cancel.rawValue, style: .default, handler: {
+        let cancelAction = UIAlertAction(title: actionKey.cancel.rawValue, style: .cancel, handler: {
             (alert: UIAlertAction!) -> Void in
             //do none
         })
