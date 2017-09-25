@@ -1,0 +1,61 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+  repositories {
+    jcenter()
+    mavenCentral()
+    maven { url 'https://jitpack.io' }
+    maven { url "http://mvn.leancloud.cn/nexus/content/repositories/public" }
+  }
+  dependencies {
+    classpath 'com.android.tools.build:gradle:2.3.3'
+    classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
+    classpath 'me.tatarka:gradle-retrolambda:3.3.1'
+    classpath 'me.tatarka.retrolambda.projectlombok:lombok.ast:0.2.3.a2'
+    classpath "io.realm:realm-gradle-plugin:3.7.2"
+  }
+  configurations.classpath.exclude group: 'com.android.tools.external.lombok'
+}
+
+allprojects {
+  repositories {
+    jcenter()
+    mavenCentral()
+    maven { url 'https://jitpack.io' }
+    maven { url "http://mvn.leancloud.cn/nexus/content/repositories/public" }
+  }
+}
+
+task clean(type: Delete) {
+  delete rootProject.buildDir
+}
+
+ext {
+  // Sdk and tools
+  minSdkVersion = 21
+  targetSdkVersion = 26
+  compileSdkVersion = 26
+  buildToolsVersion = "26.0.0"
+  versionCode = 1
+  versionName = "v0.0.1"
+
+  // App dependencies
+  androidSupportVersion = '25.3.1'
+  rxVersion = '1.2.1'
+  okHttpVersion = '3.8.0'
+  retrofitVersion = '2.1.0'
+  daggerVersion = '2.10'
+  rxBindingVersion = '0.4.0'
+  guavaVersion = '20.0'
+  jwtVersion = '0.7.0'
+  butterknifeVersion = '8.5.1'
+  apacheCommonsVersion = '3.5'
+  apacheValidatorVersion = '1.5.1'
+  glideVersion = '3.7.0'
+  gifDrawableVersion = '1.2.+'
+  googlePlayServices = '11.0.1'
+  googlePlayServicesLocation = '11.0.1'
+
+  myCapeTestDebug = 'MyCapeTestDebug'
+  myCapeTestRelease = 'MyCapeTest'
+}
