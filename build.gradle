@@ -55,4 +55,7 @@ ext {
   gifDrawableVersion = '1.2.+'
   googlePlayServices = '11.0.1'
   googlePlayServicesLocation = '11.0.1'
+
+  myCapeTestDebug = 'MyCapeTestDebug'
+  myCapeTestRelease = 'MyCapeTest'
 }

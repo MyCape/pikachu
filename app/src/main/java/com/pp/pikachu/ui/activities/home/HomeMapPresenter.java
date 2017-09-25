@@ -140,16 +140,6 @@ public class HomeMapPresenter
     this.airportsList.clear();
     for (Airports airports : airportList) {
       this.airportsList.add(airports);
-      processLocationList(airports);
-    }
-  }
-
-  private void processLocationList(Airports airports) {
-    Location location;
-    if (homeListFragment != null) {
-      location = new Location(airports.getName());
-      location.setLatitude(Double.parseDouble(airports.getLatitude()));
-      location.setLongitude(Double.parseDouble(airports.getLongitude()));
     }
   }
 

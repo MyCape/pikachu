@@ -25,6 +25,8 @@ import com.pp.pikachu.ui.activities.main.MainActivity;
 
 public class MainApplication extends BaseApplication {
 
+  private static MainApplication instance;
+
   private ApplicationComponent applicationComponent;
 
   private HomeComponent homeComponent;
@@ -39,9 +41,14 @@ public class MainApplication extends BaseApplication {
     return (MainApplication) context.getApplicationContext();
   }
 
+  public static MainApplication get() {
+    return instance;
+  }
+
   @Override public void onCreate() {
     super.onCreate();
     initAppComponent();
+    instance = this;
   }
 
   private void initAppComponent() {
