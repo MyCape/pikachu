@@ -1,4 +1,4 @@
-#Structure Description
+# Structure Description
 - The application is inspired by Uncle Bob's Clean Architecture.
 - Base activity and abstract methods are created in order for the activities to have a uniform structure,
 Interface are also added for a better handling of interactions.
