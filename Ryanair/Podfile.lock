@@ -1,0 +1,26 @@
+PODS:
+  - Alamofire (4.5.0)
+  - GoogleMaps (2.4.0):
+    - GoogleMaps/Maps (= 2.4.0)
+  - GoogleMaps/Base (2.4.0)
+  - GoogleMaps/Maps (2.4.0):
+    - GoogleMaps/Base
+  - GooglePlaces (2.4.0):
+    - GoogleMaps/Base (= 2.4.0)
+  - PKHUD (4.2.3)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.5)
+  - GoogleMaps
+  - GooglePlaces
+  - PKHUD (~> 4.0)
+
+SPEC CHECKSUMS:
+  Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
+  GoogleMaps: 8436ab5d1c25e36915b2f7416d0c8e3fa2e76c61
+  GooglePlaces: aafe5990fa7951e98e078761bbdaaf236d7e0c65
+  PKHUD: c7692163a09875cbf15827dc581df3c5cf7f1015
+
+PODFILE CHECKSUM: 1849daba119f5e5495488d5c514f1f151674141a
+
+COCOAPODS: 1.2.1
