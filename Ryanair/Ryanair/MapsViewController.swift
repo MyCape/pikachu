@@ -2,7 +2,7 @@
 //  MapsViewController.swift
 //  Ryanair
 //
-//  Created by GreatFeat on 23/09/2017.
+//  Created by Chris on 23/09/2017.
 //  Copyright © 2017 Ariel. All rights reserved.
 //
 
@@ -15,14 +15,13 @@ class MapsViewController: BaseViewController {
     //MARK: PROPERTIES
     var userLocation = CLLocation()
     var locationManager = CLLocationManager()
-    var marker = GMSMarker()
     var center = CLLocationCoordinate2D()
+    var marker = GMSMarker()
     var mapView: GMSMapView!
     var airports = [AirportModel]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        addMap()
         getUserLocation()
         getAirport()
     }
@@ -33,21 +32,21 @@ class MapsViewController: BaseViewController {
     }
 
     //MARK: HELPERS
-    func addMap() {
-        let camera = GMSCameraPosition.camera(withLatitude: 14.5547, longitude: 121.0244, zoom: 13.0)
-        mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
-        mapView.isMyLocationEnabled = true
-        view = mapView
-        center = CLLocationCoordinate2D(latitude: 14.5547, longitude: 121.0244)
-        marker.position = center
-        marker.map = mapView
-    }
-
     func getUserLocation() {
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.startUpdatingLocation()
+    }
+
+    func addMap() {
+        let camera = GMSCameraPosition.camera(withLatitude: userLocation.coordinate.latitude,
+                                              longitude: userLocation.coordinate.longitude, zoom: 13.0)
+        mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
+        mapView.isMyLocationEnabled = true
+        self.view = mapView
+        marker.position = center
+        marker.map = mapView
     }
 
     func addMarkers() {
@@ -69,13 +68,23 @@ class MapsViewController: BaseViewController {
         }
     }
 
+    func sortAirports(airportsModelArray: [AirportModel]) {
+        for i in 0..<airportsModelArray.count {
+            let airportCoordinates = CLLocation(latitude: airportsModelArray[i].lat, longitude: airportsModelArray[i].lon)
+            let distance = userLocation.distance(from: airportCoordinates)
+            if distance < 300000.00 {
+                self.airports.append(airportsModelArray[i])
+            }
+        }
+    }
+
     //MARK: API
     func getAirport() {
         LoadingView.retrievingProgress()
         let request = AirportRequestManager()
         request.getAirportsData(completionHandler: { (airports) in
             LoadingView.hide()
-            self.airports = airports
+            self.sortAirports(airportsModelArray: airports)
             self.addMarkers()
         }) { (error) in
             LoadingView.hide()
@@ -88,15 +97,7 @@ extension MapsViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         userLocation = locations.last!
         center = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
-
-        let camera = GMSCameraPosition.camera(withLatitude: userLocation.coordinate.latitude,
-                                              longitude: userLocation.coordinate.longitude, zoom: 13.0)
-        mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
-        mapView.isMyLocationEnabled = true
-        self.view = mapView
-        marker.position = center
-        marker.map = mapView
-
+        addMap()
         locationManager.stopUpdatingLocation()
     }
 }

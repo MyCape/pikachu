@@ -2,12 +2,13 @@
 //  AirportsViewController.swift
 //  Ryanair
 //
-//  Created by GreatFeat on 22/09/2017.
+//  Created by Chris on 22/09/2017.
 //  Copyright © 2017 Ariel. All rights reserved.
 //
 
 import UIKit
 import PKHUD
+import CoreLocation
 
 class AirportsViewController: BaseViewController {
 
@@ -17,6 +18,9 @@ class AirportsViewController: BaseViewController {
 
     //MARK: PROPERTIES
     var airports = [AirportModel]()
+    var userLocation = CLLocation()
+    var locationManager = CLLocationManager()
+    var center = CLLocationCoordinate2D()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +30,7 @@ class AirportsViewController: BaseViewController {
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
             self.revealViewController().rightViewRevealWidth = self.view.frame.size.width * 0.95
         }
+        getUserLocation()
         getAirport()
     }
 
@@ -35,12 +40,30 @@ class AirportsViewController: BaseViewController {
         let request = AirportRequestManager()
         request.getAirportsData(completionHandler: { (airports) in
             LoadingView.hide()
-            self.airports = airports
+            self.sortAirports(airportsModelArray: airports)
             self.tableView.reloadData()
         }) { (error) in
             LoadingView.hide()
             self.showAlert(error: error as! String)
         }
+    }
+
+    //MARK: HELPER
+    func sortAirports(airportsModelArray: [AirportModel]) {
+        for i in 0..<airportsModelArray.count {
+            let airportCoordinates = CLLocation(latitude: airportsModelArray[i].lat, longitude: airportsModelArray[i].lon)
+            let distance = userLocation.distance(from: airportCoordinates)
+            if distance < 300000.00 {
+                self.airports.append(airportsModelArray[i])
+            }
+        }
+    }
+
+    func getUserLocation() {
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.startUpdatingLocation()
     }
 }
 
@@ -71,5 +94,13 @@ extension AirportsViewController: UITableViewDelegate {
                 self.showAlert(error: "Only one Airport can be saved to favorite.")
             }
         }
+    }
+}
+
+extension AirportsViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        userLocation = locations.last!
+        center = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
+        locationManager.stopUpdatingLocation()
     }
 }
